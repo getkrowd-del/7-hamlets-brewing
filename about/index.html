@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/7-hamlets-brewing/about/">
+<!-- BASE:END -->
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+
+<!-- SEO Meta Tags -->
+<title>About Us | 7 Hamlets Brewing – Westmoreland, NY</title>
+<meta name="description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor and how it all began." />
+<meta property="og:title" content="About Us | 7 Hamlets Brewing – Westmoreland, NY" />
+<meta property="og:description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor and how it all began." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About Us | 7 Hamlets Brewing – Westmoreland, NY" />
+<meta name="twitter:description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor and how it all began." />
+<!-- End SEO Meta Tags -->
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4187');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='vDcUX4R';
+  var apiBase='https://paymegpt.com';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for purchasing '+pName.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'.</p><button onclick="document.getElementById(\'payment-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/7-hamlets-brewing/" class="nav-logo">
+      <img src="https://static.wixstatic.com/media/6e656e_f84d2b98bb9c4a2cbfe14c8e2cd57f4b~mv2.jpg" alt="7 Hamlets Brewing"/>
+      <span>7 Hamlets Brewing</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/7-hamlets-brewing/">Home</a></li>
+      <li><a href="/7-hamlets-brewing/taproom">Tap Room</a></li>
+      <li><a href="/7-hamlets-brewing/menu">Menu</a></li>
+      <li><a href="/7-hamlets-brewing/events">Events</a></li>
+      <li><a href="/7-hamlets-brewing/about" style="color:var(--gold)">About</a></li>
+      <li><a href="/7-hamlets-brewing/contact">Contact</a></li>
+    </ul>
+    <a href="tel:3153813459" class="nav-phone">315-381-3459</a>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="badge">Westmoreland's Only Brewery</div>
+  <h1>Our <span>Story</span></h1>
+  <p>Born from a shared passion for craft beer and deep roots in our community, 7 Hamlets Brewing is a labor of love — from our family to yours.</p>
+</div>
+
+<section class="story">
+  <div class="story-inner">
+    <div class="section-label">Why 7 Hamlets?</div>
+    <h2 class="section-title">A Name With Meaning</h2>
+    <div class="story-two-col">
+      <div class="story-text">
+        <p>Both of our families live in Westmoreland and many of us grew up here as well. We are a close-knit family and value our community. So, when we bought our building in Westmoreland, NY, we knew that we wanted our name to hold meaning for us and our town.</p>
+        <p>When researching the history of our town, we discovered that Westmoreland, NY had 7 original Hamlets — small settlements. Picking a name for our brewery was quite the process, and we were so relieved and happy to find something we love as much as we love 7 Hamlets.</p>
+        <p>We now use the 7 Hamlets as an inspiration throughout our brewery — from naming our craft beers after the Hamlets to our décor, specifically using maps of Westmoreland. Find the Hamlet you live in!</p>
+      </div>
+      <div class="map-wrap">
+        <img src="https://static.wixstatic.com/media/946e2a_8b639396ee6a4a5cb8ac1dbae6af3fec~mv2.jpg" alt="Map of Westmoreland's 7 Hamlets" loading="lazy"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="section-label">Our Journey</div>
+    <h2 class="section-title">How It All Started</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">June 2013</div>
+          <h4>The Hobby Begins</h4>
+          <p>What started as a passion project quickly became our obsession. We began brewing on a 5-gallon homemade system in our homes.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">A Few Years Later</div>
+          <h4>Going Pro (Kind Of)</h4>
+          <p>We upgraded to a 1-barrel electric brewing system — three 55-gallon stainless steel kettles — with a goal to perfect our craft and eventually open our own brewery.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">2019</div>
+          <h4>Finding Our Home</h4>
+          <p>The dream started becoming real when we purchased a building in our hometown of Westmoreland, NY. With the help of friends and family, the transformation began.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">March 27, 2020</div>
+          <h4>Open for Business!</h4>
+          <p>7 Hamlets Brewing Company officially opened its doors, bringing craft beer and community together in Westmoreland for the very first time.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
+        <div class="tl-content">
+          <div class="tl-year">Today</div>
+          <h4>Growing & Thriving</h4>
+          <p>From a new event space to weekly live music, trivia nights, and a rotating tap list — we continue to grow with and for our community.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="gallery-inner">
+    <div class="section-label">Inside 7 Hamlets</div>
+    <h2 class="section-title">A Look Around</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_c23c4545da324bc9a174514e6d959048~mv2.jpg" alt="7 Hamlets interior" loading="lazy"/></div>
+      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_2556d15cabda42ce9f063bb08d3f6ef3~mv2.jpg" alt="7 Hamlets brewery" loading="lazy"/></div>
+      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_55a3af0501624221b719fee18f4369dc~mv2.jpg" alt="7 Hamlets taproom" loading="lazy"/></div>
+      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_6e9f70ecada34f9bb2459499c9fecfc4~mv2.jpg" alt="7 Hamlets community" loading="lazy"/></div>
+      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_559cd2ebd28b4367963778068a6e570e~mv2.jpg" alt="7 Hamlets brewing equipment" loading="lazy"/></div>
+      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_c58e9dcc500240389530e366c223b3d4~mv2.jpg" alt="7 Hamlets taproom atmosphere" loading="lazy"/></div>
+    </div>
+  </div>
+</section>
+
+<section class="founders">
+  <div class="founders-inner">
+    <div class="section-label">From the Founders</div>
+    <h2>Keith & Matt</h2>
+    <div class="quote">
+      <p>"We're excited to share our craft beer with you all and offer a warm and inviting place to spend time with your family and friends. Thank you all for your continued support and we'll see you soon!"</p>
+      <cite>— Keith Richards & Matthew Taylor, Founders</cite>
+    </div>
+    <p style="opacity:.7;font-size:.9rem;line-height:1.7">7 Hamlets Brewing is the only brewery in Westmoreland, NY — and we're proud to call it home. Every pint poured here supports a local, family-run dream.</p>
+    <div class="founders-cta">
+      <a href="/7-hamlets-brewing/taproom">Come Visit Us →</a>
+    </div>
+  </div>
+</section>
+
+<footer>©2025 7 Hamlets Brewing · 26 Seymour Lane, Westmoreland, NY 13490 · 315-381-3459</footer>
+</body>
+</html>
