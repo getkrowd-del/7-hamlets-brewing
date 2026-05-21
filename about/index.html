@@ -9,18 +9,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
 
 <!-- SEO Meta Tags -->
 <title>About Us | 7 Hamlets Brewing – Westmoreland, NY</title>
-<meta name="description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor and how it all began." />
+<meta name="description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor." />
 <meta property="og:title" content="About Us | 7 Hamlets Brewing – Westmoreland, NY" />
-<meta property="og:description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor and how it all began." />
+<meta property="og:description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="About Us | 7 Hamlets Brewing – Westmoreland, NY" />
-<meta name="twitter:description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor and how it all began." />
+<meta name="twitter:description" content="7 Hamlets Brewing is the only brewery in Westmoreland, NY. Learn about founders Keith Richards and Matthew Taylor." />
 <!-- End SEO Meta Tags -->
 
 <script data-field-replace>
@@ -203,130 +203,91 @@
 </script>  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="/7-hamlets-brewing/" class="nav-logo">
       <img src="https://static.wixstatic.com/media/6e656e_f84d2b98bb9c4a2cbfe14c8e2cd57f4b~mv2.jpg" alt="7 Hamlets Brewing"/>
-      <span>7 Hamlets Brewing</span>
+      <div class="nav-logo-text"><span class="brand">7 Hamlets Brewing</span><span class="sub">Westmoreland, NY</span></div>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="/7-hamlets-brewing/">Home</a></li>
       <li><a href="/7-hamlets-brewing/taproom">Tap Room</a></li>
       <li><a href="/7-hamlets-brewing/menu">Menu</a></li>
       <li><a href="/7-hamlets-brewing/events">Events</a></li>
-      <li><a href="/7-hamlets-brewing/about" style="color:var(--gold)">About</a></li>
-      <li><a href="/7-hamlets-brewing/contact">Contact</a></li>
+      <li><a href="/7-hamlets-brewing/about" style="color:var(--red);opacity:1">About</a></li>
     </ul>
     <a href="tel:3153813459" class="nav-phone">315-381-3459</a>
-    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
-<div class="page-hero">
-  <div class="badge">Westmoreland's Only Brewery</div>
-  <h1>Our <span>Story</span></h1>
-  <p>Born from a shared passion for craft beer and deep roots in our community, 7 Hamlets Brewing is a labor of love — from our family to yours.</p>
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="eyebrow">Westmoreland's Only Brewery</span>
+    <h1>Our <span>Story</span></h1>
+    <p>Born from a shared passion for craft beer and deep roots in our community. From a 5-gallon homebrew kit to Westmoreland's only brewery — this is how it happened.</p>
+  </div>
 </div>
 
-<section class="story">
-  <div class="story-inner">
-    <div class="section-label">Why 7 Hamlets?</div>
-    <h2 class="section-title">A Name With Meaning</h2>
-    <div class="story-two-col">
+<section class="section">
+  <div class="sec-inner">
+    <div class="sec-label">Why 7 Hamlets?</div>
+    <div class="sec-title">A Name With Meaning</div>
+    <div class="story-grid">
       <div class="story-text">
-        <p>Both of our families live in Westmoreland and many of us grew up here as well. We are a close-knit family and value our community. So, when we bought our building in Westmoreland, NY, we knew that we wanted our name to hold meaning for us and our town.</p>
-        <p>When researching the history of our town, we discovered that Westmoreland, NY had 7 original Hamlets — small settlements. Picking a name for our brewery was quite the process, and we were so relieved and happy to find something we love as much as we love 7 Hamlets.</p>
-        <p>We now use the 7 Hamlets as an inspiration throughout our brewery — from naming our craft beers after the Hamlets to our décor, specifically using maps of Westmoreland. Find the Hamlet you live in!</p>
+        <p>Both of our families live in Westmoreland and many of us grew up here as well. We are a close-knit family and value our community. So, when we bought our building here, we knew our name had to mean something.</p>
+        <p>When researching the history of our town, we discovered that Westmoreland, NY had 7 original Hamlets — small settlements. We were so relieved and happy to find something we love as much as we love this place.</p>
+        <p>We use the 7 Hamlets as inspiration throughout the brewery — naming our craft beers after the Hamlets, and incorporating historic maps of Westmoreland in our décor. Find the Hamlet you live in!</p>
       </div>
-      <div class="map-wrap">
+      <div class="map-frame">
         <img src="https://static.wixstatic.com/media/946e2a_8b639396ee6a4a5cb8ac1dbae6af3fec~mv2.jpg" alt="Map of Westmoreland's 7 Hamlets" loading="lazy"/>
       </div>
     </div>
   </div>
 </section>
 
-<section class="timeline-section">
-  <div class="timeline-inner">
-    <div class="section-label">Our Journey</div>
-    <h2 class="section-title">How It All Started</h2>
+<section class="tl-bg">
+  <div class="tl-inner">
+    <div class="sec-label">Our Journey</div>
+    <div class="sec-title">How It All Started</div>
     <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
-        <div class="tl-content">
-          <div class="tl-year">June 2013</div>
-          <h4>The Hobby Begins</h4>
-          <p>What started as a passion project quickly became our obsession. We began brewing on a 5-gallon homemade system in our homes.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
-        <div class="tl-content">
-          <div class="tl-year">A Few Years Later</div>
-          <h4>Going Pro (Kind Of)</h4>
-          <p>We upgraded to a 1-barrel electric brewing system — three 55-gallon stainless steel kettles — with a goal to perfect our craft and eventually open our own brewery.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
-        <div class="tl-content">
-          <div class="tl-year">2019</div>
-          <h4>Finding Our Home</h4>
-          <p>The dream started becoming real when we purchased a building in our hometown of Westmoreland, NY. With the help of friends and family, the transformation began.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
-        <div class="tl-content">
-          <div class="tl-year">March 27, 2020</div>
-          <h4>Open for Business!</h4>
-          <p>7 Hamlets Brewing Company officially opened its doors, bringing craft beer and community together in Westmoreland for the very first time.</p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-line"><div class="tl-dot"></div><div class="tl-bar"></div></div>
-        <div class="tl-content">
-          <div class="tl-year">Today</div>
-          <h4>Growing & Thriving</h4>
-          <p>From a new event space to weekly live music, trivia nights, and a rotating tap list — we continue to grow with and for our community.</p>
-        </div>
-      </div>
+      <div class="tl-item"><div class="tl-year-col"><span>June 2013</span></div><div class="tl-body"><h4>The Hobby Begins</h4><p>What started as a passion project quickly became our obsession. We brewed our first batches on a 5-gallon homemade system.</p></div></div>
+      <div class="tl-item"><div class="tl-year-col"><span>A Few Years Later</span></div><div class="tl-body"><h4>Going Pro (Kind Of)</h4><p>We upgraded to a 1-barrel electric system — three 55-gallon stainless steel kettles — with the goal of perfecting our craft.</p></div></div>
+      <div class="tl-item"><div class="tl-year-col"><span>2019</span></div><div class="tl-body"><h4>Finding Our Home</h4><p>We purchased a building in Westmoreland, NY. With the help of friends and family, the transformation from empty building to brewery began.</p></div></div>
+      <div class="tl-item"><div class="tl-year-col"><span>Mar 27, 2020</span></div><div class="tl-body"><h4>Open for Business!</h4><p>7 Hamlets Brewing Company officially opened its doors — bringing craft beer and community together in Westmoreland for the very first time.</p></div></div>
+      <div class="tl-item"><div class="tl-year-col"><span>Today</span></div><div class="tl-body"><h4>Growing & Thriving</h4><p>A new event space, weekly live music, trivia nights, a rotating tap list, and a community that keeps coming back. We're just getting started.</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="gallery">
-  <div class="gallery-inner">
-    <div class="section-label">Inside 7 Hamlets</div>
-    <h2 class="section-title">A Look Around</h2>
+<section class="section">
+  <div class="sec-inner">
+    <div class="sec-label">Inside 7 Hamlets</div>
+    <div class="sec-title">A Look Around</div>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_c23c4545da324bc9a174514e6d959048~mv2.jpg" alt="7 Hamlets interior" loading="lazy"/></div>
-      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_2556d15cabda42ce9f063bb08d3f6ef3~mv2.jpg" alt="7 Hamlets brewery" loading="lazy"/></div>
-      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_55a3af0501624221b719fee18f4369dc~mv2.jpg" alt="7 Hamlets taproom" loading="lazy"/></div>
-      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_6e9f70ecada34f9bb2459499c9fecfc4~mv2.jpg" alt="7 Hamlets community" loading="lazy"/></div>
-      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_559cd2ebd28b4367963778068a6e570e~mv2.jpg" alt="7 Hamlets brewing equipment" loading="lazy"/></div>
-      <div class="gallery-item"><img src="https://static.wixstatic.com/media/6e656e_c58e9dcc500240389530e366c223b3d4~mv2.jpg" alt="7 Hamlets taproom atmosphere" loading="lazy"/></div>
+      <div class="gal-item"><img src="https://static.wixstatic.com/media/6e656e_c23c4545da324bc9a174514e6d959048~mv2.jpg" alt="7 Hamlets interior" loading="lazy"/></div>
+      <div class="gal-item"><img src="https://static.wixstatic.com/media/6e656e_2556d15cabda42ce9f063bb08d3f6ef3~mv2.jpg" alt="7 Hamlets brewery" loading="lazy"/></div>
+      <div class="gal-item"><img src="https://static.wixstatic.com/media/6e656e_55a3af0501624221b719fee18f4369dc~mv2.jpg" alt="7 Hamlets taproom" loading="lazy"/></div>
+      <div class="gal-item"><img src="https://static.wixstatic.com/media/6e656e_6e9f70ecada34f9bb2459499c9fecfc4~mv2.jpg" alt="7 Hamlets community" loading="lazy"/></div>
+      <div class="gal-item"><img src="https://static.wixstatic.com/media/6e656e_559cd2ebd28b4367963778068a6e570e~mv2.jpg" alt="7 Hamlets brewing" loading="lazy"/></div>
+      <div class="gal-item"><img src="https://static.wixstatic.com/media/6e656e_c58e9dcc500240389530e366c223b3d4~mv2.jpg" alt="7 Hamlets atmosphere" loading="lazy"/></div>
     </div>
   </div>
 </section>
 
-<section class="founders">
+<section class="founders-bg">
   <div class="founders-inner">
-    <div class="section-label">From the Founders</div>
+    <div class="sec-label">From the Founders</div>
     <h2>Keith & Matt</h2>
-    <div class="quote">
+    <div class="quote-block">
       <p>"We're excited to share our craft beer with you all and offer a warm and inviting place to spend time with your family and friends. Thank you all for your continued support and we'll see you soon!"</p>
       <cite>— Keith Richards & Matthew Taylor, Founders</cite>
     </div>
-    <p style="opacity:.7;font-size:.9rem;line-height:1.7">7 Hamlets Brewing is the only brewery in Westmoreland, NY — and we're proud to call it home. Every pint poured here supports a local, family-run dream.</p>
-    <div class="founders-cta">
-      <a href="/7-hamlets-brewing/taproom">Come Visit Us →</a>
-    </div>
+    <p class="founders-sub">7 Hamlets Brewing is the only brewery in Westmoreland, NY — and we're proud to call it home. Every pint poured here supports a local, family-run dream.</p>
+    <div class="founders-cta"><a href="/7-hamlets-brewing/taproom">Come Visit Us →</a></div>
   </div>
 </section>
 
-<footer>©2025 7 Hamlets Brewing · 26 Seymour Lane, Westmoreland, NY 13490 · 315-381-3459</footer>
+<footer><p>©2025 7 Hamlets Brewing · 26 Seymour Lane, Westmoreland, NY 13490 · <a href="tel:3153813459">315-381-3459</a></p></footer>
 </body>
 </html>
