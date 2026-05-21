@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/7-hamlets-brewing/taproom/">
+<!-- BASE:END -->
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+
+<!-- SEO Meta Tags -->
+<title>Tap Room | 7 Hamlets Brewing – Westmoreland, NY</title>
+<meta name="description" content="Visit the 7 Hamlets Brewing tap room in Westmoreland, NY. Live music Thursdays &amp; Sundays, Trivia Wednesdays. Check our hours and plan your visit." />
+<meta property="og:title" content="Tap Room | 7 Hamlets Brewing – Westmoreland, NY" />
+<meta property="og:description" content="Visit the 7 Hamlets Brewing tap room in Westmoreland, NY. Live music Thursdays &amp; Sundays, Trivia Wednesdays. Check our hours and plan your visit." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Tap Room | 7 Hamlets Brewing – Westmoreland, NY" />
+<meta name="twitter:description" content="Visit the 7 Hamlets Brewing tap room in Westmoreland, NY. Live music Thursdays &amp; Sundays, Trivia Wednesdays. Check our hours and plan your visit." />
+<!-- End SEO Meta Tags -->
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4184');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='6LirXm';
+  var apiBase='https://paymegpt.com';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">Thank you for purchasing '+pName.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'.</p><button onclick="document.getElementById(\'payment-success-overlay\').remove();window.history.replaceState({},\'\',window.location.pathname);" style="padding:12px 32px;font-size:16px;font-weight:600;background:#16a34a;color:white;border:none;border-radius:8px;cursor:pointer;">Continue</button></div>';
+      document.body.appendChild(overlay);
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/7-hamlets-brewing/" class="nav-logo">
+      <img src="https://static.wixstatic.com/media/6e656e_f84d2b98bb9c4a2cbfe14c8e2cd57f4b~mv2.jpg" alt="7 Hamlets Brewing"/>
+      <span>7 Hamlets Brewing</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/7-hamlets-brewing/">Home</a></li>
+      <li><a href="/7-hamlets-brewing/taproom" style="color:var(--gold)">Tap Room</a></li>
+      <li><a href="/7-hamlets-brewing/menu">Menu</a></li>
+      <li><a href="/7-hamlets-brewing/events">Events</a></li>
+      <li><a href="/7-hamlets-brewing/about">About</a></li>
+      <li><a href="/7-hamlets-brewing/contact">Contact</a></li>
+    </ul>
+    <a href="tel:3153813459" class="nav-phone">315-381-3459</a>
+    <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="badge">Westmoreland, NY</div>
+  <h1>The <span>Tap Room</span></h1>
+  <p>Your neighborhood gathering spot. Cold craft beer, warm atmosphere, live entertainment — and friendly faces all week long.</p>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">When We're Open</div>
+    <div class="section-title">Hours of Operation</div>
+    <div class="hours-cards">
+      <div class="hours-card">
+        <h2>🍺 Tap Room</h2>
+        <div class="day-row"><span class="day">Monday</span><span class="closed">Closed</span></div>
+        <div class="day-row"><span class="day">Tuesday</span><span class="closed">Closed</span></div>
+        <div class="day-row"><span class="day">Wednesday</span><span class="time">4pm – 9pm</span></div>
+        <div class="day-row"><span class="day">Thursday</span><span class="time">3pm – 9pm</span></div>
+        <div class="day-row"><span class="day">Friday</span><span class="time">3pm – 9pm</span></div>
+        <div class="day-row"><span class="day">Saturday</span><span class="time">12pm – 9pm</span></div>
+        <div class="day-row"><span class="day">Sunday</span><span class="time">1pm – 6pm</span></div>
+      </div>
+      <div class="hours-card">
+        <h2>🍔 Kitchen</h2>
+        <div class="day-row"><span class="day">Monday</span><span class="closed">Closed</span></div>
+        <div class="day-row"><span class="day">Tuesday</span><span class="closed">Closed</span></div>
+        <div class="day-row"><span class="day">Wednesday</span><span class="time">4pm – ~8pm</span></div>
+        <div class="day-row"><span class="day">Thursday</span><span class="time">3pm – ~8pm</span></div>
+        <div class="day-row"><span class="day">Friday</span><span class="time">3pm – ~8pm</span></div>
+        <div class="day-row"><span class="day">Saturday</span><span class="time">12pm – ~8pm</span></div>
+        <div class="day-row"><span class="day">Sunday</span><span class="time">1pm – ~5pm</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="entertainment">
+  <div class="ent-inner">
+    <div class="section-label">Weekly Entertainment</div>
+    <div class="section-title">Always Something Going On</div>
+    <div class="ent-grid">
+      <div class="ent-card">
+        <div class="ent-icon">🧠</div>
+        <div class="when">Every Wednesday</div>
+        <h3>Trivia Night</h3>
+        <p>Put your knowledge to the test every Wednesday evening. 6pm – 8pm. Tap room opens at 4pm.</p>
+      </div>
+      <div class="ent-card">
+        <div class="ent-icon">🎸</div>
+        <div class="when">Every Thursday</div>
+        <h3>Live Music</h3>
+        <p>Local and regional artists take the stage Thursday evenings. 5:30pm – 8:30pm. Tap room opens at 3pm.</p>
+      </div>
+      <div class="ent-card">
+        <div class="ent-icon">🎶</div>
+        <div class="when">Every Sunday</div>
+        <h3>Live Music</h3>
+        <p>Wind down the weekend with live music Sunday afternoons. 2pm – 5pm. Tap room opens at 1pm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="expect">
+  <div class="expect-inner">
+    <div class="section-label">The Experience</div>
+    <div class="section-title">What to Expect</div>
+    <div class="expect-list">
+      <div class="expect-item">
+        <div class="expect-num">01</div>
+        <div>
+          <h4>Craft Beer on Tap</h4>
+          <p>A rotating selection of small-batch brews, each named after one of Westmoreland's 7 original hamlets. From light and sessionable to bold and complex.</p>
+        </div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-num">02</div>
+        <div>
+          <h4>Food on Site</h4>
+          <p>Our kitchen is open Wed–Sun with fresh, hearty options. The "Come and Get It" food truck also stops by regularly for additional variety.</p>
+        </div>
+      </div>
+      <div class="expect-item">
+        <div class="expect-num">03</div>
+        <div>
+          <h4>A True Community Spot</h4>
+          <p>Family-friendly, welcoming, and rooted in Westmoreland. We're more than a brewery — we're a gathering place for neighbors and friends.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-bar">
+  <h2>Follow for Updates</h2>
+  <p>Special events, featured taps, and last-minute updates posted on social.</p>
+  <a href="https://www.facebook.com/7HamletsBrewing/" target="_blank">Visit Our Facebook Page</a>
+</div>
+
+<footer>©2025 7 Hamlets Brewing · 26 Seymour Lane, Westmoreland, NY 13490 · 315-381-3459</footer>
+</body>
+</html>
