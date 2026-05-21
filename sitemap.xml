@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://getkrowd-del.github.io/7-hamlets-brewing/taproom/</loc>
+    <lastmod>2026-05-21T00:53:43.392Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://getkrowd-del.github.io/7-hamlets-brewing/</loc>
     <lastmod>2026-05-21T00:53:34.307Z</lastmod>
     <changefreq>weekly</changefreq>
